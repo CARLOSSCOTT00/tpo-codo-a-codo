@@ -176,11 +176,16 @@ height:3.8rem;
 }
 
 .book-form form {
-  display: flex;
-  align-items: flex-end;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
   gap: 1.5rem;
 }
+#mensaje{
+  flex: 1 1 25rem;
+  maxlength:
+}
+
+
 
 .book-form form .inputBox {
   flex: 1 1 25rem;
@@ -188,7 +193,22 @@ height:3.8rem;
 .book-form form .inputBox span {
   font-size: 1.4rem;
   color: var(--lihgt-color);
+  
 }
+.book-form form .inputBox select{
+  width: 100%;
+  padding: 1.2rem 1.4rem;
+  border-radius: 5rem;
+  border: var(--border);
+  font-size: 1.6rem;
+  color: var(--lihgt-color);
+  text-transform: none;
+  background: var(--bg-color);
+  margin-top: 1rem;
+  
+ 
+}
+
 .book-form form .inputBox input {
   width: 100%;
   padding: 1.2rem 1.4rem;
@@ -199,6 +219,28 @@ height:3.8rem;
   text-transform: none;
   background: none;
   margin-top: 1rem;
+}
+textarea{
+  width: 100%;
+  padding: 1.2rem 1.4rem;
+  border-radius: 5rem;
+  border: var(--border);
+  font-size: 1.6rem;
+  color: var(--lihgt-color);
+  text-transform: none;
+  background: none;
+  margin-top: 1rem;
+  height: 44px;
+  outline: none;
+  resize: none;
+  font-size: 1.3rem;
+
+
+
+
+}
+textarea::-webkit-scrollbar{
+  width: 0px;
 }
 .book-form form .btn {
   flex: 1 1 15rem;
