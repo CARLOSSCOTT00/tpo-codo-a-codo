@@ -79,7 +79,11 @@ section {
 
 .heading h1 {
   font-size: 4rem;
-  color: var(--white);
+  color: var(--white);}
+/* menu con efecto*/
+
+.nav_toggle {
+  display: none;
 }
 /**seccion del header inicio**/
 .btn {
@@ -787,7 +791,7 @@ textarea::-webkit-scrollbar {
 }
 
 
-.moneda input, .moneda select 
+.moneda input, .moneda select {
   
     width: 100%;
     border-radius: 5rem;
@@ -801,7 +805,7 @@ textarea::-webkit-scrollbar {
     padding: 1.2rem 1.4rem;
     display: inline-block;
   vertical-align: middle;
-  
+}
 
 
 
@@ -823,10 +827,10 @@ textarea::-webkit-scrollbar {
 }
 
 @media (max-width: 768px) {
-  #menu-btn {
+  /*#menu-btn {
     font-size: 4.5rem;
     display: inline-block;
-  }
+  }*/
 
   .header .navbar {
     position: absolute;
@@ -838,7 +842,7 @@ textarea::-webkit-scrollbar {
     opacity: 0.8;
   }
 
-  .header .active {
+  .header .navbar.active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 
@@ -856,8 +860,57 @@ textarea::-webkit-scrollbar {
   }
   .home .content h3 {
     font-size: 9vw;
+
   }
+
+  .header .nav_toggle {
+    display: flex !important;
+    flex-direction: column;
+    margin: 15px;
+    cursor: pointer;
 }
+
+.header .nav_toggle span {
+    width: 30px;
+    height: 5px;
+    background: var(--white);
+    margin-bottom: 5px;
+    border-radius: 2px;
+    transform-origin: 5px 0px;
+    transition: all 0.2s linear;
+}
+
+.close span {
+    transform: rotate(45deg) translate(0px, 0px);
+}
+
+.close span:nth-child(2) {
+    display: none;
+}
+
+.close span:nth-child(3) {
+    transform: rotate(-45deg) translate(-5px, 1px);
+}
+
+.open {
+    transform: translateX(0) !important;
+}
+
+.nav_items a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: rgb(2, 39, 41);
+  transition: all 0.5s;
+}
+
+.nav_items a:hover::before {
+  width: 100% !important;
+}
+
 
 @media (max-width: 450px) {
   html {
