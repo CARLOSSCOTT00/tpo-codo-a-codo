@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="oscuro">
 
 <head>
     <meta charset="UTF-8">
@@ -38,6 +38,11 @@
         </nav>
 
         <a data-aos="zoom-in-left" data-aos-delay="1300" href="#book-form" class="btn">reservar</a>
+        <button id="modoDark" class="switch">
+            <span><i class="fas fa-sun"></i></span>
+           <span><i class="fas fa-moon"></i></span>
+           
+        </button>
 
 
 
@@ -75,10 +80,10 @@
     <!-- booking form section starts-->
     <section class="book-form" id="book-form">
 
-        <form action="">
+        <form class="contact-form" action="https://formspree.io/f/xyyaakdd" method="POST" id="form">
             <div data-aos="zoom-in" data-aos-delay="300" class="inputBox">
                 <span>destinos</span>
-                <select >
+                <select required pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" title=" selecciona un destino">
                     <option value="" disable selected="">seleccione un destino</option>
                     <option value="">bariloche</option>
                     <option value="">el calafate</option>
@@ -88,36 +93,43 @@
                     <option value="">madero tango</option>
                     <option value="">mendoza</option>
                     <option value="">uruguay</option>
-           
-            </select>
-        </div>
+
+                </select>
+            </div>
             <div data-aos="zoom-in" data-aos-delay="300" class="inputBox">
                 <span>cuando</span>
-                <input type="date" value="">
+                <input type="date" name="fecha" id="fecha" title=" selecciona una fecha futura" min="" value=""
+                    pattern="^[a-z0-9]" required>
+
             </div>
             <div data-aos="zoom-in" data-aos-delay="450" class="inputBox">
                 <span>cuantos</span>
-                <input type="number" placeholder="numero de viajeros" min="1" value="">
+                <input type="number" name="viajeros" title=" sólo acepta numeros mayor a 1"
+                    placeholder="numero de viajeros" min="1" pattern="^[0-9]*$" value="" required>
             </div>
 
             <div data-aos="zoom-in" data-aos-delay="150" class="inputBox">
                 <span>nombre</span>
-                <input type="text" placeholder="nombre y apellido" value="">
+                <input type="text" name="nombre" placeholder="Escribe tu nombre"
+                    title=" sólo acepta letras y espacios en blanco" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
             </div>
             <div data-aos="zoom-in" data-aos-delay="150" class="inputBox">
                 <span>e-mail</span>
-                <input type="text" placeholder="ingresa tu email" value="">
+                <input type="email" name="email" placeholder="Escribe tu email" title="Email incorrecto"
+                    pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required>
+
             </div>
             <div data-aos="zoom-in" data-aos-delay="150" class="inputBox">
                 <span>telefono</span>
-                <input type="text" placeholder="ingresa tu numero" value="">
+                <input type="tel" name="telefono" placeholder="ingresa tu numero" title="sólo acepta numeros " value=""
+                    pattern="^[0-9]*$" required>
             </div>
             <div data-aos="zoom-in" data-aos-delay="150" class="inputBox" #mensaje>
                 <span>mensaje</span>
-                <textarea type="text" placeholder="ingresa tu mensaje max 250 caracteres" maxlength="250"
-                    value=""></textarea>
+                <textarea type="text" name="mensaje" title="Tu comentario no debe exceder los 255 caracteres"
+                    placeholder="ingresa tu mensaje max 250 caracteres" data-pattern="^.{1,255}$" required></textarea>
             </div>
-            <input data-aos="zoom-in" data-aos-delay="600" type="submit" value="reservar " class="btn">
+            <input data-aos="zoom-in" data-aos-delay="600" type="submit" value="reservar ahora" class="btn">
         </form>
     </section>
     <!-- booking form section ends-->
@@ -431,7 +443,7 @@
     <!-- review section starts-->
 
     <section class="review">
-        <div class="content" data-aos="fade-right" data-aos-delay="300">
+        <div class="content" data-aos="fade-left" data-aos-delay="300">
             <span> testimonios </span>
             <h3> Buenas Noticias De Nuestros Clientes</h3>
             <p>¡Descubre las experiencias de nuestros clientes satisfechos! testimonios auténticos de viajeros que han
@@ -441,7 +453,7 @@
         </div>
 
 
-        <div class="box-container" data-aos="fade-left" data-aos-delay="600">
+        <div class="box-container" data-aos="fade-right" data-aos-delay="600">
             <div class="box">
                 <p>"Mi viaje a Argentina fue simplemente increíble gracias a madero viagens. Su atención personalizada,
                     recomendaciones de actividades emocionantes y elección de hoteles de calidad superaron mis
@@ -694,9 +706,9 @@
     <section class="footer">
         <div class="box-container">
             <div class="box" data-aos="fade-up" data-aos-delay="150">
-                <a data-aos="zoom-in-left" data-aos-delay="150" href="#" class="logo"><img src="imagenes/logo3.png"
-                        width: 60px height=30px class="fas fa-paper-plane"></img></a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi corporis consequuntur optio.</p>
+                <a data-aos="zoom-in-left" data-aos-delay="150" href="#"><img src="imagenes/logo3.png"
+                        class="logo-footer"></img></a>
+                <p>siguenos en las diversas redes sociales, contactanos . </p>
                 <div class="share">
                     <a href="#" class="fab fa-facebook-f"></a>
                     <a href="#" class="fab fa-twitter"></a>
@@ -716,6 +728,7 @@
                 <a href="#blogs" class="link"><i class="fas fa-arrow-right"></i> blogs</a>
 
             </div>
+
             <div class="box" data-aos="fade-up" data-aos-delay="450">
                 <h3>contact info</h3>
                 <p> <i class="fas fa-map"></i> munbai, india</p>
@@ -723,6 +736,7 @@
                 <p> <i class="fas fa-envelope"></i> carlosdanielscott@gmail.com</p>
                 <p> <i class="fas fa-clock"></i> 7:00am - 10:00pm</p>
             </div>
+
             <div class="box" data-aos="fade-up" data-aos-delay="600">
                 <h3>Boletin Informativo</h3>
                 <form action="">
@@ -732,6 +746,149 @@
                 </form>
             </div>
 
+
+            <div class="box" data-aos="fade-up" data-aos-delay="750">
+
+                <h3>Conversor de moneda</h3>
+                <p>Escoje la moneda y la cantidad para realizar la conversion</p>
+
+
+                <div class="moneda">
+                    <select id="moneda-uno" placeholder="selecciona la noneda" title="selecciona la noneda " value="">
+                        <option value="AED">AED</option>
+                        <option value="ARS">ARS</option>
+                        <option value="AUD">AUD</option>
+                        <option value="BGN">BGN</option>
+                        <option value="BRL">BRL</option>
+                        <option value="BSD">BSD</option>
+                        <option value="CAD">CAD</option>
+                        <option value="CHF">CHF</option>
+                        <option value="CLP">CLP</option>
+                        <option value="CNY">CNY</option>
+                        <option value="COP">COP</option>
+                        <option value="CZK">CZK</option>
+                        <option value="DKK">DKK</option>
+                        <option value="DOP">DOP</option>
+                        <option value="EGP">EGP</option>
+                        <option value="EUR">EUR</option>
+                        <option value="FJD">FJD</option>
+                        <option value="GBP">GBP</option>
+                        <option value="GTQ">GTQ</option>
+                        <option value="HKD">HKD</option>
+                        <option value="HRK">HRK</option>
+                        <option value="HUF">HUF</option>
+                        <option value="IDR">IDR</option>
+                        <option value="ILS">ILS</option>
+                        <option value="INR">INR</option>
+                        <option value="ISK">ISK</option>
+                        <option value="JPY">JPY</option>
+                        <option value="KRW">KRW</option>
+                        <option value="KZT">KZT</option>
+                        <option value="MXN">MXN</option>
+                        <option value="MYR">MYR</option>
+                        <option value="NOK">NOK</option>
+                        <option value="NZD">NZD</option>
+                        <option value="PAB">PAB</option>
+                        <option value="PEN">PEN</option>
+                        <option value="PHP">PHP</option>
+                        <option value="PKR">PKR</option>
+                        <option value="PLN">PLN</option>
+                        <option value="PYG">PYG</option>
+                        <option value="RON">RON</option>
+                        <option value="RUB">RUB</option>
+                        <option value="SAR">SAR</option>
+                        <option value="SEK">SEK</option>
+                        <option value="SGD">SGD</option>
+                        <option value="THB">THB</option>
+                        <option value="TRY">TRY</option>
+                        <option value="TWD">TWD</option>
+                        <option value="UAH">UAH</option>
+                        <option value="USD" selected>USD</option>
+                        <option value="UYU">UYU</option>
+                        <option value="VND">VND</option>
+                        <option value="ZAR">ZAR</option>
+
+                    </select>
+
+                    <input type="number" id="cantidad-uno" value="1" placeholder="ingresa la cantidad"
+                        title="sólo acepta numeros " value="">
+
+                </div>
+
+                <div class="taza-cambio-container">
+                    <span>taza</span>
+                    <div class="cambio" id="cambio"></div>
+
+                </div>
+
+                <div class="moneda">
+                    <select id="moneda-dos" placeholder="selecciona la noneda" title="selecciona la noneda ">
+                        <option value="AED">AED</option>
+                        <option value="ARS">ARS</option>
+                        <option value="AUD">AUD</option>
+                        <option value="BGN">BGN</option>
+                        <option value="BRL">BRL</option>
+                        <option value="BSD">BSD</option>
+                        <option value="CAD">CAD</option>
+                        <option value="CHF">CHF</option>
+                        <option value="CLP">CLP</option>
+                        <option value="CNY">CNY</option>
+                        <option value="COP">COP</option>
+                        <option value="CZK">CZK</option>
+                        <option value="DKK">DKK</option>
+                        <option value="DOP">DOP</option>
+                        <option value="EGP">EGP</option>
+                        <option value="EUR" selected>EUR</option>
+                        <option value="FJD">FJD</option>
+                        <option value="GBP">GBP</option>
+                        <option value="GTQ">GTQ</option>
+                        <option value="HKD">HKD</option>
+                        <option value="HRK">HRK</option>
+                        <option value="HUF">HUF</option>
+                        <option value="IDR">IDR</option>
+                        <option value="ILS">ILS</option>
+                        <option value="INR">INR</option>
+                        <option value="ISK">ISK</option>
+                        <option value="JPY">JPY</option>
+                        <option value="KRW">KRW</option>
+                        <option value="KZT">KZT</option>
+                        <option value="MXN">MXN</option>
+                        <option value="MYR">MYR</option>
+                        <option value="NOK">NOK</option>
+                        <option value="NZD">NZD</option>
+                        <option value="PAB">PAB</option>
+                        <option value="PEN">PEN</option>
+                        <option value="PHP">PHP</option>
+                        <option value="PKR">PKR</option>
+                        <option value="PLN">PLN</option>
+                        <option value="PYG">PYG</option>
+                        <option value="RON">RON</option>
+                        <option value="RUB">RUB</option>
+                        <option value="SAR">SAR</option>
+                        <option value="SEK">SEK</option>
+                        <option value="SGD">SGD</option>
+                        <option value="THB">THB</option>
+                        <option value="TRY">TRY</option>
+                        <option value="TWD">TWD</option>
+                        <option value="UAH">UAH</option>
+                        <option value="USD">USD</option>
+                        <option value="UYU">UYU</option>
+                        <option value="VND">VND</option>
+                        <option value="ZAR">ZAR</option>
+
+                    </select>
+
+
+                    <input type="number" id="cantidad-dos" value="" placeholder="ingresa la cantidad">
+
+                    <div class="taza-cambio-container">
+                        <button class="btn" id="taza">
+                            invertir moneda
+                        </button>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <div class="credit">creado por<span> carlos scott</span> | todos los derechos reservados!</div>

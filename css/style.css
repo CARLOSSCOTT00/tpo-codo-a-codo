@@ -12,7 +12,7 @@
   transition: all 0.2s linear;
 }
 
-:root {
+:root[data-theme="claro"] {
   --blue: #29d9d5;
   --black: #111;
   --white: #fff;
@@ -20,6 +20,20 @@
   --bg-color: #222;
   --black-bg: rgba(17, 17, 17, 0.7);
   --border: 0.2rem solid var(--blue);
+  --form-ok-color: #4caf50;
+  --form-error-color: #c62e2367;
+}
+
+:root[data-theme="oscuro"] {
+  --blue: #1b1ef1;
+  --black: #ebf5f1;
+  --white: #0f0101;
+  --lihgt-color: #1f1f20;
+  --bg-color:rgb(77, 211, 234);
+  --black-bg: rgba(77, 211, 234, 0.816);
+  --border: 0.2rem solid var(--blue);
+  --form-ok-color: #4caf50;
+  --form-error-color: #aa281fe6;
 }
 /**@mixin grid(val) {
   display: grid;
@@ -111,16 +125,61 @@ section {
 
 .btn {
   margin-top: 0;
-}header img{
-    
-width: 13rem;
-height:3.8rem;
+}
+header img {
+  width: 13rem;
+  height: 3.8rem;
 }
 #menu-btn {
   font-size: 2.5rem;
   color: var(--white);
   cursor: pointer;
   display: none;
+}
+/* modo claro-oscuro*/
+
+.switch {
+  background: #343d5b;
+  border-radius: 1000px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  outline: none;
+}
+
+.switch::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background: #f1f1f1;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 100px;
+  transition: .3s ease all;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, .2);
+}
+
+.switch.active {
+  background: rgb(255, 179, 0);
+  color: #000;
+}
+
+.switch.active::after {
+  right: 0;
+  left: unset; 
+}
+
+.switch span{
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  background: none;
+  color: #fff;
 }
 
 /**home seccion  starts**/
@@ -180,12 +239,10 @@ height:3.8rem;
   grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
   gap: 1.5rem;
 }
-#mensaje{
+#mensaje {
   flex: 1 1 25rem;
-  maxlength:
+  maxlength: ;
 }
-
-
 
 .book-form form .inputBox {
   flex: 1 1 25rem;
@@ -193,9 +250,8 @@ height:3.8rem;
 .book-form form .inputBox span {
   font-size: 1.4rem;
   color: var(--lihgt-color);
-  
 }
-.book-form form .inputBox select{
+.book-form form .inputBox select {
   width: 100%;
   padding: 1.2rem 1.4rem;
   border-radius: 5rem;
@@ -205,8 +261,6 @@ height:3.8rem;
   text-transform: none;
   background: var(--bg-color);
   margin-top: 1rem;
-  
- 
 }
 
 .book-form form .inputBox input {
@@ -220,7 +274,7 @@ height:3.8rem;
   background: none;
   margin-top: 1rem;
 }
-textarea{
+textarea {
   width: 100%;
   padding: 1.2rem 1.4rem;
   border-radius: 5rem;
@@ -234,17 +288,64 @@ textarea{
   outline: none;
   resize: none;
   font-size: 1.3rem;
-
-
-
-
 }
-textarea::-webkit-scrollbar{
+textarea::-webkit-scrollbar {
   width: 0px;
 }
+
 .book-form form .btn {
   flex: 1 1 15rem;
 }
+
+/** validacion formulario**/
+
+.inputBox [required]:valid {
+  border: thin solid var(--form-ok-color);
+}
+
+.inputBox [required]:invalid {
+  border: thin solid var(--blue);
+}
+
+.book-form *::placeholder {
+  color: var(--white);
+}
+
+.contact-form-error {
+  margin-top: -1rem;
+  font-size: 80%;
+  background-color:var(--form-error-color);
+  color:var(--form-ok-color);
+  transition: all 800ms ease;
+  border-radius: 3rem;
+  padding: 1rem;
+}
+
+.contact-form-error.is-active {
+  display: block;
+  animation: show-message 1.5s 1 normal 0s ease-out both;
+}
+
+.book-form-loader {
+  text-align: center;
+}
+
+.none {
+  display: none;
+}
+
+@keyframes show-message {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
 /**about section starts-**/
 .about {
   display: flex;
@@ -564,17 +665,23 @@ textarea::-webkit-scrollbar{
 
 .footer .box-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 1rem;
 }
 .footer .box-container .box {
   padding: 1rem 0;
+ 
+}
+.logo-footer{
+  width: 75px; 
+  height:30px;
+  background-color: #0f0101;
 }
 
 .footer .box-container .box .logo {
   padding-bottom: 1rem;
 }
-.footer .box-container .box h3 {
+.footer .box-container .box h3  {
   font-size: 2.2rem;
   color: var(--white);
   padding: 1rem 0;
@@ -650,7 +757,56 @@ textarea::-webkit-scrollbar{
 }
 .credit span {
   color: var(--blue);
+
+  
 }
+
+/** cambio de moneda**/
+
+
+.moneda select,
+.moneda input {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 5rem;
+    border: var(--border);
+    background: none;
+    font-size: 1.5rem;
+    text-transform: none;
+    color: var(--lihgt-color);
+    margin-bottom: .5rem;
+    padding: 0.5rem;
+    width:fit-content;
+  
+}
+
+#cambio, span {
+  font-size: 1rem;
+  color: var(--white);
+  padding: .1rem 0;
+}
+
+
+.moneda input, .moneda select 
+  
+    width: 100%;
+    border-radius: 5rem;
+    border: var(--border);
+    background: none;
+    font-size: 1.5rem;
+    text-transform: none;
+    color: var(--lihgt-color);
+  
+    margin-bottom: 1rem;
+    padding: 1.2rem 1.4rem;
+    display: inline-block;
+  vertical-align: middle;
+  
+
+
+
+
+
 
 @media (max-width: 991px) {
   html {
@@ -679,9 +835,7 @@ textarea::-webkit-scrollbar{
     right: 0;
     background: var(--bg-color);
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    opacity: .8;
-    display: flex;
-    align-items: center
+    opacity: 0.8;
   }
 
   .header .active {
