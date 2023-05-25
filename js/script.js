@@ -1,6 +1,6 @@
 
 
-
+// menu hamburguesa, transformacion
 let menu = document.querySelector('#_toggle');
 let navbar = document.querySelector('#navbar')
 document.querySelector('#_toggle').onclick = () => {
@@ -10,14 +10,14 @@ document.querySelector('#_toggle').onclick = () => {
     
 }
 
-
+//slaiders
 document.querySelectorAll(' .about .video-container .controls .control-btn').forEach(btn => {
 	btn.onclick = () => {
 		let src = btn.getAttribute('data-src');
 		document.querySelector('.about .video-container .video').src = src;
 	}
 })
-
+//aumentar la altura del text area
 const textarea = document.querySelector("textarea");
 textarea.addEventListener("keyup", e => {
 	textarea.style.height = '${38}px';
@@ -90,30 +90,7 @@ d.addEventListener("keyup", (e) => {
 
 });
 
-
-/*
-const form = document.querySelector('#form')
-
-form.addEventListener('submit', handleSubmit)
-
-async function handleSubmit(event) {
-	event.preventDefault()
-	const form = new FormData(this)
-	const response = await fetch(this.action, {
-		method: this.method,
-		body: form,
-		headers: {
-			'Accept': 'application/json'
-		}
-	})
-	if (Response.ok) {
-
-		this.reset()
-
-		alert('gracias por reservar con nosotros, en breve te contactaremos')
-	}
-
-}*/
+// envio formulario
 
 const form = document.querySelector('#form')
 
@@ -136,7 +113,7 @@ async function handleSubmit(event) {
 }
 
 
-/*cambio de moneda*/
+/*apicambio de moneda*/
 const monedaEl_one = document.getElementById('moneda-uno');
 const monedaEl_two = document.getElementById('moneda-dos');
 const cantidadEl_one = document.getElementById('cantidad-uno');
@@ -145,7 +122,7 @@ const cambioEl = document.getElementById('cambio');
 const tazaEl = document.getElementById('taza');
 
 
-// Fetch Exchange Rate and Update the DOM
+// api rest, calculo de la moneda consultada
 function calculate(){
     const moneda_one = monedaEl_one.value;
     const moneda_two = monedaEl_two.value;
@@ -163,7 +140,7 @@ function calculate(){
     
 }
 
-//Event listeners
+//api rest, intercambio de moneda
 monedaEl_one.addEventListener('change', calculate);
 cantidadEl_one.addEventListener('input', calculate);
 monedaEl_two.addEventListener('change', calculate);
@@ -178,47 +155,20 @@ taza.addEventListener('click', () =>{
 
 
 calculate();
-/*
-	const active = document.querySelector('switch')
-    // Obtener el elemento HTML que contiene el atributo data-theme
-    const elemento = document.querySelector('html');
-    
-    // Obtener el botón para cambiar el tema
-    const botonCambiarTema = document.getElementById('modoDark');
-
-    // Agregar un EventListener al botón
-    botonCambiarTema.addEventListener('click', function() {
-      // Obtener el valor actual del atributo data-theme
-
-      const temaActual = elemento.getAttribute('data-theme');
-
-      // Cambiar el valor del atributo data-theme
-      if (temaActual === 'oscuro') {
-        elemento.setAttribute('data-theme', 'claro')
-		active.classList.toggle('active');
-
-      } else {
-        elemento.setAttribute('data-theme', 'oscuro');
-      }
-    });
-	
-*/
 
 
 
-// Obtener el botón por su ID
+
+// Obtener el botón por su ID, modo claro-oscuro
 const botonModoDark = document.getElementById('modoDark');
 
-// Agregar un EventListener al botón
 botonModoDark.addEventListener('click', function() {
-  // Obtener el elemento HTML
+
   const htmlElement = document.documentElement;
 
-  // Verificar el valor actual del data-theme
   const currentTheme = htmlElement.getAttribute('data-theme');
   
-  // Cambiar el valor del data-theme y la clase "active"
-  if (currentTheme === 'claro') {
+   if (currentTheme === 'claro') {
 	htmlElement.setAttribute('data-theme', 'oscuro');
 	botonModoDark.classList.add('active');
   } else {
@@ -226,3 +176,44 @@ botonModoDark.addEventListener('click', function() {
 	botonModoDark.classList.remove('active');
   }
 });
+
+// mensaje temporar de alerta , por seccion no completada//
+  
+  const enlaces = document.getElementsByClassName('alert');
+
+  
+  for (let i = 0; i < enlaces.length; i++) {
+	enlaces[i].addEventListener('click', function(event) {
+	  
+	  event.preventDefault();
+
+	  
+	  alert(' ¡Te pedimos disculpas! Proximamente podras desplegar esta seccion y leer mas de nuestros destinos. si gustas puedes descargar el descriptivo.');
+	});
+  }
+  
+// funcion para ocultar y mostrar elementos
+  
+  
+	function toggleVisibility(viewSelector, hideSelector, targetSelector) {
+		var viewLink = document.querySelector(viewSelector);
+		var hideLink = document.querySelector(hideSelector);
+		var target = document.querySelector(targetSelector);
+	  
+		viewLink.addEventListener('click', function(event) {
+		  event.preventDefault();
+		  target.classList.remove('none');
+		  hideLink.classList.remove('none');
+		  viewLink.classList.add('none');
+		});
+	  
+		hideLink.addEventListener('click', function(event) {
+		  event.preventDefault();
+		  target.classList.add('none');
+		  hideLink.classList.add('none');
+		  viewLink.classList.remove('none');
+		});
+	  }
+  toggleVisibility('.view-blog1', '.hide-blog1', '#p-blog1');
+toggleVisibility('.view-blog2', '.hide-blog2', '#p-blog2');
+toggleVisibility('.view-blog3', '.hide-blog3', '#p-blog3');

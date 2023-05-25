@@ -231,7 +231,7 @@ header img {
 .book-form {
   width: 80%;
   margin: 1rem auto;
-  margin-top: -5rem;
+  margin-top: -4rem;
   background: var(--bg-color);
   border-radius: 1rem;
   box-shadow: 0.5rem 1rem rgba(17, 17, 17, 0.3);
@@ -243,10 +243,7 @@ header img {
   grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
   gap: 1.5rem;
 }
-#mensaje {
-  flex: 1 1 25rem;
-  maxlength: ;
-}
+
 
 .book-form form .inputBox {
   flex: 1 1 25rem;
@@ -616,24 +613,30 @@ textarea::-webkit-scrollbar {
 
 .blogs .box-container .box .content p {
   padding: 1rem 0;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: var(--lihgt-color);
   line-height: 2;
+  text-align: justify;
 }
-.blogs .box-container .box .content .icon {
+/** ocultar parrafos**/
+none{
+  display: none;
+}
+
+.blogs .box-container .box .content .icon .a {
   padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.blogs .box-container .box .content a {
+.blogs .box-container .box .content .a {
   font-size: 1.4rem;
   color: var(--lihgt-color);
 }
-.blogs .box-container .box .content a:hover {
+.blogs .box-container .box .content .a:hover {
   color: var(--blue);
 }
-.blogs .box-container .box .content a i {
+.blogs .box-container .box .content .a i {
   padding-right: 0.5rem;
   color: var(--blue);
 }
@@ -851,6 +854,7 @@ textarea::-webkit-scrollbar {
     font-size: 2rem;
     display: block;
   }
+  
 
   .home {
     margin-top: 10rem;
@@ -927,5 +931,4 @@ textarea::-webkit-scrollbar {
 
   #menu-btn {
     font-size: 4.5rem;
-  }
-}
+  }}
