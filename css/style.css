@@ -43,20 +43,20 @@
 
 html {
   font-size: 62.5%;
-
   scroll-behavior: smooth;
   scroll-padding-top: 9rem;
+}
 
-  ::-webkit-scrollbar {
-    width: 1rem;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--black);
-  }
+html::-webkit-scrollbar {
+  width: 1rem;
+}
 
-  ::-webkit-scrollbar-thumb {
-    background: var(--blue);
-  }
+html::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--blue);
 }
 
 body {
@@ -701,7 +701,7 @@ none{
   line-height: 2;
 }
 .footer .box-container .box p i {
-  padding-right: 0.5;
+  padding-right: 0.5rem;
   color: var(--blue);
 }
 
@@ -735,7 +735,7 @@ none{
   color: var(--blue);
 }
 .footer .box-container .box .link i {
-  padding-right: 0.5;
+  padding-right: 0.5rem;
   color: var(--blue);
 }
 .footer .box-container .box .link:hover i {
@@ -932,3 +932,4 @@ none{
   #menu-btn {
     font-size: 4.5rem;
   }}
+}
